@@ -5,40 +5,68 @@
     <link rel="icon" type="image/svg+xml" href="https://tylur.dev/tylur.svg" />
     <link rel="icon" type="ico" href="https://tylur.dev/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="An open letter to Governor Gavin Newsom and Mayor Karen Bass calling for the full legalization of street food in California." />
+    <meta property="og:title" content="dangerdog.org - Legalize Street Food in California" />
+    <meta property="og:description" content="An open letter calling for the full legalization of tacos, burritos, fruit stands, danger dogs, and night markets across California." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="dangerdog.org - Legalize Street Food in California" />
+    <meta name="twitter:description" content="An open letter calling for the full legalization of street food in California." />
     <link rel="stylesheet" href="https://tylur.dev/style.css" />
     <link rel="stylesheet" href="./src/style.css" />
     <link rel="stylesheet" href="./doodle.css" />
-    <title>chalker.shop</title>
+    <title>dangerdog.org - An Open Letter for Street Food</title>
   </head>
-  <body class="doodle mx-2 flex flex-col items-center gap-2">
-    <h1 className="text-4xl font-bold tracking-tight">chalker.shop</h1>
-    <p className="max-w-sm">
-      hi! this is my laptop as a chalkboard. join the newsletter if you'd like
-      to follow along and buy one soon!
-    </p>
-    <img
-      src="./images/chalker.webp"
-      alt="chalker prototype"
-      width="200"
-      height="200"
-    />
-    <form
-      action="https://buttondown.com/api/emails/embed-subscribe/tylur.dev"
-      method="post"
-      target="popupwindow"
-      onsubmit="window.open('https://buttondown.com/tylur.dev', 'popupwindow')"
-      class="flex flex-col items-center gap-2"
-    >
-      <label for="bd-email" class="font-bold">Enter your email</label>
-      <input
-        type="email"
-        name="email"
-        autocomplete="email"
-        id="bd-email"
-        pattern="[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*"
-      />
+  <body class="doodle mx-2 flex flex-col gap-2">
+    <div class="max-w-2xl prose prose-lg text-left">
+      <p class="font-semibold">Dear Governor Gavin Newsom and Mayor Karen Bass,</p>
 
-      <input type="submit" value="Subscribe" />
+      <p>It's time to fully legalize our street food, for good. Tacos, burritos, fruit stands, danger dogs, and large night markets make California what it is. The problem? There should be way more of it all.</p>
+
+      <p>When you talk to anyone who travels to California or countries abroad with good street food, it is always one of the first things that is mentioned: the food. It is cheap, delicious, and made by people who CARE.</p>
+
+      <p>Now you may worry about the safety of this all. In a world where restaurants can cause massive foodborne illness (chipotle), we have tv shows like kitchen nightmares and bar rescue, and grocery stores sell donuts with listeria... this might seem like a reasonable concern. For street vendors, it is not.</p>
+
+      <p>Our current laws force vendors to operate in legal gray areas, worsening the chances for mishandling. How do we fix that?</p>
+
+      <ol>
+        <li>Make it dirt cheap to register as a street vendor ($25 or free)</li>
+        <li>Train the vendors on health safety practices in 1-2 hours upon registration</li>
+        <li>Setup common lots and cleaning facilities for trucks and carts in major cities (Mexico does this)</li>
+        <li>Make it unquestionably legal to sell food on our streets</li>
+      </ol>
+
+      <p>This is an invitation to make meaningful legal progress for real workers of California.</p>
+
+      <p class="font-semibold">Thank you,<br>dangerdog.org</p>
+    </div>
+
+    <div class="max-w-2xl w-full mt-8">
+      <p class="text-left font-bold">Sign the open letter</p>
+      <form
+        id="newsletter-form"
+        class="flex flex-col"
+      >
+        <label for="bd-name" class="text-sm text-left mb-0.5">Full name</label>
+        <input
+          type="text"
+          name="metadata__name"
+          autocomplete="name"
+          id="bd-name"
+          required
+        />
+
+        <label for="bd-email" class="text-sm text-left mt-3 mb-0.5">Email</label>
+        <input
+          type="email"
+          name="email"
+          autocomplete="email"
+          id="bd-email"
+          pattern="[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*"
+          required
+        />
+
+        <input type="submit" value="Sign the Letter" class="mt-3" />
     </form>
   </body>
   <script src="./src/main.ts" type="module"></script>

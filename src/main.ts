@@ -1,33 +1,50 @@
-const addEmailListener = () => {
-  const emailInput = document.querySelector("#bd-email") as HTMLInputElement;
-  const audio = new Audio("chalkboard.mp3");
-  audio.preload = "auto";
-  const goodChalkStarts = [2, 3.5, 5.8, 7, 8.4, 9.2];
-  if (!emailInput) return;
-  emailInput.addEventListener("input", (event) => {
-    if ("data" in event && !event.data) {
-      return;
-    }
-    let isChalking = false;
-    const playChalk = () => {
-      // one at a time
-      if (isChalking) return;
-      const start =
-        goodChalkStarts[Math.floor(Math.random() * goodChalkStarts.length)];
-      audio.currentTime = start;
-      audio.play();
-      setTimeout(() => {
-        audio.pause();
-        isChalking = false;
-      }, 500);
-    };
-    // Play a random 0.5s segment from chalkboard.mp3
-    audio.addEventListener("loadedmetadata", playChalk);
-    // If metadata is already loaded
-    if (audio.readyState >= 1) {
-      playChalk();
+const addFormListener = () => {
+  const form = document.querySelector("#newsletter-form") as HTMLFormElement;
+  if (!form) return;
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const nameInput = document.querySelector("#bd-name") as HTMLInputElement;
+    const emailInput = document.querySelector("#bd-email") as HTMLInputElement;
+    const submitButton = form.querySelector(
+      'input[type="submit"]'
+    ) as HTMLInputElement;
+
+    if (!nameInput || !emailInput || !submitButton) return;
+
+    const formData = new FormData();
+    formData.append("email", emailInput.value);
+    formData.append("metadata__name", nameInput.value);
+
+    submitButton.disabled = true;
+    submitButton.value = "Signing...";
+
+    try {
+      const response = await fetch(
+        "https://buttondown.com/api/emails/embed-subscribe/dangerdog.org",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
+        submitButton.value = "Signed!";
+        form.reset();
+        setTimeout(() => {
+          submitButton.disabled = false;
+          submitButton.value = "Sign the Letter";
+        }, 3000);
+      } else {
+        submitButton.value = "Error - Try again";
+        submitButton.disabled = false;
+      }
+    } catch (error) {
+      submitButton.value = "Error - Try again";
+      submitButton.disabled = false;
     }
   });
 };
 
-addEmailListener();
+addFormListener();
