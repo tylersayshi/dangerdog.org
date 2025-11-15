@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+/* Override external style.css to allow scrolling on short viewports */
+html,
+body {
+  height: auto !important;
+  min-height: 100%;
+}
