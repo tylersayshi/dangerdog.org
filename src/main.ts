@@ -17,7 +17,7 @@ const fetchSignatureCount = async () => {
       // kickstarting the tip jar
       const count = Math.max(data.count || 0, 22 + (signed ? 1 : 0));
       countElement.textContent = `${count.toLocaleString()} ${
-        count === 1 ? "signature" : "signatures"
+        count === 1 ? "signature" : "others have signed this letter"
       }`;
     } else {
       countElement.textContent = "";
