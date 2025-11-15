@@ -6,3 +6,8 @@ body {
   height: auto !important;
   min-height: 100%;
 }
+
+/* Override chalk font with serif font */
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+}
