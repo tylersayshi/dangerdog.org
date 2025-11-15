@@ -43,19 +43,22 @@ const addFormListener = () => {
 
     if (!nameInput || !emailInput || !submitButton) return;
 
-    const formData = new FormData();
-    formData.append("email", emailInput.value);
-    formData.append("metadata__name", nameInput.value);
-
     submitButton.disabled = true;
     submitButton.value = "Signing...";
 
     try {
+      // Replace with your actual Val Town endpoint URL after deployment
       const response = await fetch(
-        "https://buttondown.com/api/emails/embed-subscribe/dangerdog.org",
+        "https://tylersayshi--93ee7c12c27611f0bff442dde27851f2.web.val.run",
         {
           method: "POST",
-          body: formData,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: emailInput.value,
+            name: nameInput.value,
+          }),
         }
       );
 
