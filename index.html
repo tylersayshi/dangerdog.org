@@ -64,6 +64,17 @@
           pattern="[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*"
           required
         />
+        <p class="text-sm font-bold text-gray-600 text-left mt-1">Your email will never be shared and is only needed for telling you when we send this letter</p>
+
+        <div class="flex items-center mt-3">
+          <input
+            type="checkbox"
+            name="metadata__dont_update_me"
+            id="bd-dont-update"
+            class="mr-2"
+          />
+          <label for="bd-dont-update" class="text-sm text-left">Don't update me</label>
+        </div>
 
         <input type="submit" value="Sign the Letter" class="mt-3" />
       </form>

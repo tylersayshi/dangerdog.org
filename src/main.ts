@@ -37,6 +37,7 @@ const addFormListener = () => {
 
     const nameInput = document.querySelector("#bd-name") as HTMLInputElement;
     const emailInput = document.querySelector("#bd-email") as HTMLInputElement;
+    const dontUpdateCheckbox = document.querySelector("#bd-dont-update") as HTMLInputElement;
     const submitButton = form.querySelector(
       'input[type="submit"]'
     ) as HTMLInputElement;
@@ -58,6 +59,7 @@ const addFormListener = () => {
           body: JSON.stringify({
             email: emailInput.value,
             name: nameInput.value,
+            dont_update_me: dontUpdateCheckbox?.checked || false,
           }),
         }
       );
